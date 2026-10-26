@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FND-04 — Request lifecycle</title>
+  <script
+    src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0"
+    integrity="sha384-BvJpBiO8Kh31EqtJe5DRIeWrHWnCGkwytKs9NKFi86Hhw96dEqdEMzZDeK9iEGTc"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>FND-04 — Request lifecycle</h1>
+  <p>Enable <code>htmx.config.logAll = true</code> in the console, then click <strong>Start request</strong> once.</p>
+
+  <button hx-get="step" hx-target="#out" hx-swap="innerHTML">Start request</button>
+
+  <div id="out">
+    <button hx-get="step" hx-target="#out">Nested widget</button>
+  </div>
+</body>
+</html>

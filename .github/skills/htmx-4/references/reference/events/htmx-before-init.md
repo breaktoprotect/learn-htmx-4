@@ -1,0 +1,23 @@
+# htmx:before:init
+
+The `htmx:before:init` event fires before a specific element is initialized with htmx metadata.
+
+## When It Fires
+
+During element processing, before htmx attaches its internal metadata structure to the element.
+
+## Event Detail
+
+Empty - no additional context provided.
+
+## Example
+
+```javascript
+htmx.on('htmx:before:init', (evt) => {
+  console.log('Initializing element:', evt.target);
+});
+```
+
+Cancel this event to prevent htmx from initializing the element. 
+
+This runs early in the initialization lifecycle, before attributes are fully parsed.

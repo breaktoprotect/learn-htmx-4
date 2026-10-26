@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FND-03 — The four axes</title>
+  <script
+    src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0"
+    integrity="sha384-BvJpBiO8Kh31EqtJe5DRIeWrHWnCGkwytKs9NKFi86Hhw96dEqdEMzZDeK9iEGTc"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>FND-03 — The four axes</h1>
+  <p>Baseline: all four axes are explicit. Change one at a time.</p>
+
+  <button
+    hx-post="probe"
+    hx-trigger="click"
+    hx-target="#out"
+    hx-swap="innerHTML">Probe</button>
+
+  <div id="out">Waiting.</div>
+
+  <!-- TODO: add a second target element for the target-axis experiment -->
+   <p id="result">Placeholder only.</p>
+</body>
+</html>

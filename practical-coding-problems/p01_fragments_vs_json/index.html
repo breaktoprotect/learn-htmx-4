@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FND-01 — HTML fragment vs JSON payload</title>
+  <script
+    src="https://cdn.jsdelivr.net/npm/htmx.org@4.0.0"
+    integrity="sha384-BvJpBiO8Kh31EqtJe5DRIeWrHWnCGkwytKs9NKFi86Hhw96dEqdEMzZDeK9iEGTc"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>FND-01 — HTML fragment vs JSON payload</h1>
+  <p>Send both requests into <code>#output</code> and compare what the browser renders.</p>
+
+  <!-- TODO: add a button that requests "fragment" into #output -->
+  <button hx-get="fragment" hx-target="#output">Load fragment</button>
+
+
+  <!-- TODO: add a button that requests "payload" into #output -->
+   <button hx-get="payload" hx-target="#output">Load payload</button>
+
+  <div id="output">Nothing yet.</div>
+</body>
+</html>

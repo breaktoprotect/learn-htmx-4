@@ -1,0 +1,31 @@
+# HX-Location
+
+The `HX-Location` response header redirects without reloading the page.
+
+## Syntax
+
+Return a path:
+
+```http
+HX-Location: /dashboard
+```
+
+`HX-Location` calls `htmx.ajax()`. The header above is equivalent to:
+
+```js
+htmx.ajax('GET', '/dashboard', { push: 'true' })
+```
+
+Use any serializable [`htmx.ajax()` option](https://four.htmx.org/reference/methods/htmx-ajax#options). Include `path`:
+
+```text
+# HCON
+HX-Location: path:/search target:#results select:#matches
+
+# JSON
+HX-Location: {"path":"/search","target":"#results","select":"#matches"}
+```
+
+## Notes
+
+`HX-Location` is not processed on 3xx responses. Return a 2xx response instead.

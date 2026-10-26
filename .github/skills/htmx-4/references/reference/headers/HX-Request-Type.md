@@ -1,0 +1,58 @@
+# HX-Request-Type
+
+The `HX-Request-Type` request header indicates if request targets a specific element or the whole page.
+
+## Syntax
+
+```http
+HX-Request-Type: partial
+
+// or
+
+HX-Request-Type: full
+```
+
+## Values
+
+This header is added automatically.
+
+### `full`
+
+Used when the [target](https://four.htmx.org/docs#targeting-elements) is the document body, or when selecting elements from the response (with [`hx-select`](https://four.htmx.org/reference/attributes/hx-select)).
+
+```html
+<!-- If target is body (explicit) -->
+<button hx-get=... hx-target="body">
+
+<!-- If target is body (implicit) -->
+<a href=... hx-boost="true">
+
+<!-- If selecting elements from response -->
+<div hx-get=... hx-select=".content">
+```
+
+**Note:** [`hx-boost="true"`](https://four.htmx.org/reference/attributes/hx-boost) implicitly sets [`hx-target="body"`](https://four.htmx.org/reference/attributes/hx-target).
+
+### `partial`
+
+Used when the target is any other element.
+
+```html
+<!-- If target is any element (except body) -->
+<button hx-get="..." hx-target="#results">...</button>
+
+<!-- If target is not set (defaults to this element) -->
+<div hx-post="...">...</div>
+```
+
+## Example
+
+Use it on the server to customize response behavior:
+
+```python
+request_type = request.headers.get('HX-Request-Type')
+if request_type == 'full':
+    return render_full_page()
+else:
+    return render_fragment()
+```

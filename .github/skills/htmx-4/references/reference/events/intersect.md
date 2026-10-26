@@ -1,0 +1,27 @@
+# intersect
+
+The `intersect` trigger event fires when an element enters the viewport, detected via IntersectionObserver.
+
+## When It Fires
+
+When an element becomes visible in the viewport, used by [`hx-trigger`](https://four.htmx.org/reference/attributes/hx-trigger)`="intersect"`.
+
+## Event Detail
+
+Empty - no additional context provided.
+
+## Example
+
+```html
+<div id="lazy" hx-get="/lazy-content" hx-trigger="intersect">
+  Content loads when scrolled into view
+</div>
+```
+
+```javascript
+htmx.on('#lazy', 'intersect', (evt) => {
+  console.log('Element visible:', evt.target);
+});
+```
+
+This enables lazy loading and infinite scroll patterns.
